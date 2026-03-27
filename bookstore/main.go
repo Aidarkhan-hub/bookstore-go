@@ -1,27 +1,20 @@
 ﻿package main
+
 import (
     "bookstore/handlers"
-    "fmt"
-    "net/http"
+    "github.com/gin-gonic/gin"
 )
+
 func main() {
-    mux := http.NewServeMux()
+    r := gin.Default()
 
-    // Books
-    mux.HandleFunc("GET /books", handlers.GetBooks)
-    mux.HandleFunc("GET /books/{id}", handlers.GetBookByID)
-    mux.HandleFunc("POST /books", handlers.CreateBook)
+    r.GET("/books", handlers.GetBooks)
+    r.GET("/books/:id", handlers.GetBookByID)
+    r.POST("/books", handlers.CreateBook)
 
-    // Authors
-    mux.HandleFunc("GET /authors", handlers.GetAuthors)
-    mux.HandleFunc("POST /authors", handlers.CreateAuthor)
+    // Для авторов и категорий (добавь аналогично в handlers)
+    // r.GET("/authors", handlers.GetAuthors)
+    // r.POST("/authors", handlers.CreateAuthor)
 
-    // Categories
-    mux.HandleFunc("GET /categories", handlers.GetCategories)
-    mux.HandleFunc("POST /categories", handlers.CreateCategory)
-
-    fmt.Println("Server starts at :8080")
-    if err := http.ListenAndServe(":8080", mux); err != nil {
-        fmt.Println("Error starting server:", err)
-    }
+    r.Run(":8080")
 }
