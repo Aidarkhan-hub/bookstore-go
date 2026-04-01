@@ -8,9 +8,9 @@ import (
 )
 
 var categories = []models.Category{
-	{ID: 1, Name: "issecai"},
+	{ID: 1, Name: "Fiction"},
 	{ID: 2, Name: "Fantasy"},
-	{ID: 3, Name: "anime"},
+	{ID: 3, Name: "Anime"},
 	{ID: 4, Name: "Science"},
 	{ID: 5, Name: "Horror"},
 }
