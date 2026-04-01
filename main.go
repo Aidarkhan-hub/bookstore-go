@@ -1,20 +1,25 @@
 ﻿package main
 
 import (
-    "bookstore/handlers"
-    "github.com/gin-gonic/gin"
+	"bookstore/handlers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-    r := gin.Default()
+	r := gin.Default()
+	r.GET("/users", handlers.GetAuthors)
+	r.POST("/users", handlers.AddAuthor)
 
-    r.GET("/books", handlers.GetBooks)
-    r.GET("/books/:id", handlers.GetBookByID)
-    r.POST("/books", handlers.CreateBook)
+	r.GET("/books", handlers.GetBook)
+	r.POST("/books", handlers.AddBook)
+	r.PUT("/books/:id", handlers.UpdateBook)
+	r.GET("/books/:id", handlers.GetBookByID)
+	r.DELETE("/books/:id", handlers.DeleteBook)
 
-    // Для авторов и категорий (добавь аналогично в handlers)
-    // r.GET("/authors", handlers.GetAuthors)
-    // r.POST("/authors", handlers.CreateAuthor)
+	r.GET("/categories", handlers.GetCategory)
+	r.POST("/categories", handlers.AddCategory)
 
-    r.Run(":8080")
+	r.Run(":8080")
+
 }

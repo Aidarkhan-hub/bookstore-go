@@ -8,11 +8,11 @@ import (
 )
 
 var users = []models.Author{
-	{ID: 1, Name: "Baltash"},
-	{ID: 2, Name: "Daulet"},
-	{ID: 3, Name: "Danchick"},
-	{ID: 4, Name: "Rahat"},
-	{ID: 5, Name: "Nursayat"},
+	{ID: 1, Name: "Aidarkhan"},
+	{ID: 2, Name: "Akzhan"},
+	{ID: 3, Name: "Batyrkhan"},
+	{ID: 4, Name: "Bauyrzhan"},
+	{ID: 5, Name: "Sholpan"},
 }
 
 func GetAuthors(c *gin.Context) {
