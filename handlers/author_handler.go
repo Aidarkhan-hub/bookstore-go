@@ -8,6 +8,7 @@ import (
 )
 
 var users = []models.Author{
+
 	{ID: 1, Name: "Aidarkhan"},
 	{ID: 2, Name: "Akzhan"},
 	{ID: 3, Name: "Batyrkhan"},
