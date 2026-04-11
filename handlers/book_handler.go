@@ -55,7 +55,7 @@ func GetBook(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 func GetBookByID(c *gin.Context) {
-	id := c.Param("id")
+	id := c.Param("bookId")
 
 	for _, b := range books {
 		if fmt.Sprint(b.ID) == id {
@@ -90,7 +90,7 @@ func AddBook(c *gin.Context) {
 }
 
 func UpdateBook(c *gin.Context) {
-	id := c.Param("id")
+	id := c.Param("bookId")
 
 	var updatedBook models.Book
 	if err := c.ShouldBindJSON(&updatedBook); err != nil {
@@ -111,7 +111,7 @@ func UpdateBook(c *gin.Context) {
 }
 
 func DeleteBook(c *gin.Context) {
-	id := c.Param("id")
+	id := c.Param("bookId")
 
 	for i, b := range books {
 		if fmt.Sprint(b.ID) == id {
